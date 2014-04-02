@@ -10,7 +10,7 @@
 /tmp/
 /logs/
 /output/
-.idea
+.idea*
 
 ## Specific to RubyMotion:
 .dat*

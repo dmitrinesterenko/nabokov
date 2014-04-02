@@ -37,10 +37,9 @@ class SpeedCounter
             next
           end
           clean_content = page.doc.xpath(@text_selector_blog_view).to_s
-          clean_content_post = page.doc.xpath(@text_selector_post_view).to_s
-          #puts clean_content_post
-          #puts clean_content
-          @word_counter.count(clean_content+clean_content_post )
+          clean_content += page.doc.xpath(@text_selector_post_view).to_s
+
+          @word_counter.count(clean_content)
 
           if  count > @crawl_pages
             puts 'Finishing'

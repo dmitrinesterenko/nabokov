@@ -6,7 +6,7 @@ Count the frequency of word occurrence on a website
 Usage
 -----
 
-ruby word_count.rb http://www.example.com
+ruby word_count.rb -u http://www.example.com
 
 Todo
 ----
