@@ -14,6 +14,7 @@ class SpeedCounter
     @word_counter = WordCounter.new
     @text_selector_blog_view = '//div[@id=\'content-left\']//div/text()'
     @text_selector_post_view = '//div[@id=\'content-left\']//p/text()'
+    @text_selector_article = '//div[contains(@class,\'maincontent\')]//p/text()'
     Logable::set_log_file url
   end
 
@@ -36,11 +37,12 @@ class SpeedCounter
           if !is_valid page
             next
           end
-          clean_content = page.doc.xpath(@text_selector_blog_view).to_s
-          clean_content_post = page.doc.xpath(@text_selector_post_view).to_s
+          #clean_content = page.doc.xpath(@text_selector_blog_view).to_s
+          #clean_content += page.doc.xpath(@text_selector_post_view).to_s
+          clean_content = page.doc.xpath(@text_selector_article).to_s
           #puts clean_content_post
           #puts clean_content
-          @word_counter.count(clean_content+clean_content_post )
+          @word_counter.count(clean_content)
 
           if  count > @crawl_pages
             puts 'Finishing'
